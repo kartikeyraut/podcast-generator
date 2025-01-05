@@ -1,4 +1,4 @@
-name: "Podcast Generator"
+name: "Podcast Generator NodeJs"
 author: "Kartikey Raut"
 description: "Generates a feed for podcast from a YAML file"
 runs:

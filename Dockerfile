@@ -11,26 +11,27 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the application files to the container
-COPY . .
+COPY feed.js ./
 
-# Expose the port your application will run on (default for many Node apps is 3000)
-EXPOSE 3000
+# Copy the entryPoint.sh script to the container
+COPY entryPoint.sh /entryPoint.sh
 
-# Command to run the app
-CMD ["npm", "start"]
+# Ensure the entryPoint.sh script is executable
+RUN chmod +x /entryPoint.sh
+
+# Set the default command to execute the entryPoint.sh script
+ENTRYPOINT ["/entryPoint.sh"]
 
 
+# RUN apt-get update && apt-get install -y \
+#     python3.10 \
+#     python3-pip \
+#     git
 
+# RUN pip3 install PyYAML
 
-RUN apt-get update && apt-get install -y \
-    python3.10 \
-    python3-pip \
-    git
+# COPY feed.py /usr/bin/feed.py
 
-RUN pip3 install PyYAML
+# COPY entryPoint.sh /entryPoint.sh 
 
-COPY feed.py /usr/bin/feed.py
-
-COPY entryPoint.sh /entryPoint.sh 
-
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]

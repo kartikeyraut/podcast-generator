@@ -3,7 +3,7 @@ author: "Kartikey Raut"
 description: "Generates a feed for podcast from a YAML file"
 runs:
   using: "docker"
-  image: "docker"
+  image: "Dockerfile"
 branding:
   icon: "git-branch"
   color: "red"
